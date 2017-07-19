@@ -1,9 +1,11 @@
 package com.learn.spring;
 
-//@Configuration
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
 public class BeanContextTest {
 
-    public BeanContextTest(int... ints) {
+    public BeanContextTest() {
 
     }
 }
