@@ -4,7 +4,7 @@ import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.Bean;
 
 @Configuration
-public class BeanConfig {
+public class BeanContextTest {
 
     @Bean
     public HelloWorld helloWorld() {

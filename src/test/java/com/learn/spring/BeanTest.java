@@ -1,6 +1,5 @@
 package com.learn.spring;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -15,7 +14,7 @@ public class BeanTest {
     @Test
     public void beanTest() {
         ApplicationContext applicationContext =
-                new AnnotationConfigApplicationContext(BeanConfig.class);
+                new AnnotationConfigApplicationContext(BeanContextTest.class);
         HelloWorld helloWorld = applicationContext.getBean(HelloWorld.class);
         helloWorld.setMessage("DUPA");
         assertTrue(helloWorld.getMessage().equals("DUPA"));
