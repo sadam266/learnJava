@@ -6,9 +6,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import static org.junit.Assert.*;
 
-/**
- * Created by adam.rabczuk on 2017-07-21.
- */
 public class BeanTest {
 
     @Test
