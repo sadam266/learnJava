@@ -9,12 +9,19 @@ public class SorterTest {
     private final Integer[] sorted = new Integer[]{1, 3, 6, 12, 42, 47, 54, 61};
 
     @Test
+    @SuppressWarnings("unchecked")
     public void testQuicksortIntegers() throws Exception {
-        Assert.assertArrayEquals(this.sorted, Sorter.sort(this.input, Algorithm.QUICKSORT));
+        Sorter sorter = SorterFactory.getFactory(Algorithm.QUICKSORT);
+        sorter.setArray(this.input);
+        Assert.assertArrayEquals(this.sorted, sorter.sort());
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void testMergesortIntegers() throws Exception {
-        Assert.assertArrayEquals(this.sorted, Sorter.sort(this.input, Algorithm.MERGESORT));
+        Sorter sorter = SorterFactory.getFactory(Algorithm.MERGESORT);
+        sorter.setArray(this.input);
+        sorter.sort();
+        Assert.assertArrayEquals(this.sorted, sorter.sort());
     }
 }

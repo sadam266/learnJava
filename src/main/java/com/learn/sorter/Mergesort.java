@@ -1,16 +1,24 @@
 package com.learn.sorter;
 
-class Mergesort<T extends Comparable<T>> {
+class Mergesort<T extends Comparable<T>> implements Sorter<T> {
 
     private T[] array;
 
-    Mergesort(T[] array) {
+    @Override
+    public void setArray(T[] array) {
         this.array = array;
-        mergesort(0, this.array.length - 1);
     }
 
-    T[] getArray(){
+    @Override
+    public T[] getArray(){
         return this.array;
+    }
+
+    @Override
+    public T[] sort() {
+        setArray(array);
+        mergesort(0, this.array.length - 1);
+        return getArray();
     }
 
     private void mergesort(int lowIndex, int highIndex) {

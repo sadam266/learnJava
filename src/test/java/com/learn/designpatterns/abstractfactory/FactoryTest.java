@@ -10,5 +10,4 @@ public class FactoryTest {
         Button windowsButton = factory.createButton();
         windowsButton.paint();
     }
-
 }
