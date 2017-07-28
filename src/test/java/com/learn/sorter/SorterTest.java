@@ -28,7 +28,7 @@ public class SorterTest {
     @Test
     @SuppressWarnings("unchecked")
     public void testUninitializedQuicksort() throws Exception {
-        Sorter sorter = SorterFactory.getFactory(Algorithm.MERGESORT);
+        Sorter sorter = SorterFactory.getFactory(Algorithm.QUICKSORT);
         sorter.sort();
     }
 }
