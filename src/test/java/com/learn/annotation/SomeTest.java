@@ -2,8 +2,6 @@ package com.learn.annotation;
 
 import org.junit.Test;
 
-import java.lang.reflect.Method;
-
 import static org.junit.Assert.*;
 
 public class SomeTest {

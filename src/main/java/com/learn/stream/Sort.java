@@ -11,16 +11,17 @@ class Sort {
         List<T> partitionedList = new ArrayList<>();
         if (list.size() > 0) {
             T pivot = pivot(list);
-            List<T> smaller = quicksort(
-                    list.stream()
-                            .filter(l -> l.compareTo(pivot) < 0)
-                            .collect(toList()));
-            List<T> bigger = quicksort(
-                    list.stream()
-                            .filter(l -> l.compareTo(pivot) > 0)
-                            .collect(toList()));
+            List<T> smaller = quicksort(list.stream()
+                    .filter(l -> l.compareTo(pivot) < 0)
+                    .collect(toList()));
+            List<T> equal = list.stream()
+                    .filter(l -> l.equals(pivot))
+                    .collect(toList());
+            List<T> bigger = quicksort(list.stream()
+                    .filter(l -> l.compareTo(pivot) > 0)
+                    .collect(toList()));
             partitionedList.addAll(smaller);
-            partitionedList.add(pivot);
+            partitionedList.addAll(equal);
             partitionedList.addAll(bigger);
         }
         return partitionedList;

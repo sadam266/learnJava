@@ -7,7 +7,7 @@
         <property name="message" value="DUPA"/>
     </bean>
 
-    <bean class="com.learn.spring.Singleton" name="singleton" scope="singleton"/>
+    <bean class="com.learn.spring.Singleton" name="singleton"/>
 
     <bean class="com.learn.spring.Prototype" name="prototype" scope="prototype"/>
 
