@@ -16,8 +16,11 @@ class Mergesort<T extends Comparable<T>> implements Sorter<T> {
 
     @Override
     public T[] sort() {
-        setArray(array);
-        mergesort(0, this.array.length - 1);
+        try {
+            mergesort(0, getArray().length - 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return getArray();
     }
 

@@ -16,8 +16,11 @@ class Quicksort<T extends Comparable<T>> implements Sorter<T> {
 
     @Override
     public T[] sort() {
-        setArray(array);
-        quicksort(0, getArray().length - 1);
+        try {
+            quicksort(0, getArray().length - 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return getArray();
     }
 

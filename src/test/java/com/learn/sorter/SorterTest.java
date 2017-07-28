@@ -24,4 +24,11 @@ public class SorterTest {
         sorter.sort();
         Assert.assertArrayEquals(this.sorted, sorter.sort());
     }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testUninitializedQuicksort() throws Exception {
+        Sorter sorter = SorterFactory.getFactory(Algorithm.MERGESORT);
+        sorter.sort();
+    }
 }

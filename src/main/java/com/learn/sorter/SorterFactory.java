@@ -2,14 +2,14 @@ package com.learn.sorter;
 
 import org.jetbrains.annotations.NotNull;
 
-class SorterFactory<T extends Comparable<T>> {
+public class SorterFactory {
 
     private SorterFactory() {
         throw new UnsupportedOperationException();
     }
 
     @NotNull
-    static Sorter getFactory(Algorithm algorithm) throws Exception {
+    public static Sorter getFactory(Algorithm algorithm) throws Exception {
         switch (algorithm) {
             case QUICKSORT:
                 return new Quicksort();
