@@ -1,27 +1,29 @@
 package com.learn.sorter;
 
 class Quicksort<T extends Comparable<T>> implements Sorter<T> {
-
+    private static final Algorithm algorithm = Algorithm.QUICKSORT;
     private T[] array;
 
-    @Override
     public void setArray(T[] array) {
         this.array = array;
     }
 
-    @Override
     public T[] getArray() {
         return this.array;
     }
 
-    @Override
-    public T[] sort() {
-        try {
+    public T[] sort() throws UninitialisedSorterException {
+        if (getArray() != null) {
             quicksort(0, getArray().length - 1);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            throw new UninitialisedSorterException();
         }
         return getArray();
+    }
+
+    @Override
+    public Algorithm getAlgorithm() {
+        return algorithm;
     }
 
     private void quicksort(int lowIndex, int highIndex) {

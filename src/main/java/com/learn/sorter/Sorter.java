@@ -6,5 +6,7 @@ public interface Sorter<T extends Comparable<T>> {
 
     T[] getArray();
 
-    T[] sort();
+    T[] sort() throws UninitialisedSorterException;
+
+    Algorithm getAlgorithm();
 }

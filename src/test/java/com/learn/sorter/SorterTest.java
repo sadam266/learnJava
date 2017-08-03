@@ -1,6 +1,6 @@
 package com.learn.sorter;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertArrayEquals;
 import org.junit.Test;
 
 public class SorterTest {
@@ -10,25 +10,38 @@ public class SorterTest {
 
     @Test
     @SuppressWarnings("unchecked")
-    public void testQuicksortIntegers() throws Exception {
-        Sorter sorter = SorterFactory.getFactory(Algorithm.QUICKSORT);
+    public void testQuicksortIntegers() throws UninitialisedSorterException {
+        Sorter sorter = SorterFactory.getSorter(Algorithm.QUICKSORT);
         sorter.setArray(this.input);
-        Assert.assertArrayEquals(this.sorted, sorter.sort());
+        assertArrayEquals(this.sorted, sorter.sort());
     }
 
     @Test
     @SuppressWarnings("unchecked")
-    public void testMergesortIntegers() throws Exception {
-        Sorter sorter = SorterFactory.getFactory(Algorithm.MERGESORT);
+    public void testMergesortIntegers() throws UninitialisedSorterException {
+        Sorter sorter = SorterFactory.getSorter(Algorithm.MERGESORT);
         sorter.setArray(this.input);
         sorter.sort();
-        Assert.assertArrayEquals(this.sorted, sorter.sort());
+        assertArrayEquals(this.sorted, sorter.sort());
     }
 
     @Test
     @SuppressWarnings("unchecked")
-    public void testUninitializedQuicksort() throws Exception {
-        Sorter sorter = SorterFactory.getFactory(Algorithm.QUICKSORT);
-        sorter.sort();
+    public void testUninitializedQuicksort() throws UninitialisedSorterException {
+        Sorter sorter = SorterFactory.getSorter(Algorithm.QUICKSORT);
+        try {
+            sorter.sort();
+        } catch (UninitialisedSorterException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testEmptyArrayQuicksort() throws UninitialisedSorterException {
+        Sorter<Integer> sorter = SorterFactory.getSorter(Algorithm.QUICKSORT);
+        Integer[] integers = new Integer[0];
+        sorter.setArray(integers);
+//        TODO
+//        sorter.sort();
     }
 }

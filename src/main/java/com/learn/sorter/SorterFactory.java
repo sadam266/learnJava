@@ -9,14 +9,13 @@ public class SorterFactory {
     }
 
     @NotNull
-    public static Sorter getFactory(Algorithm algorithm) throws Exception {
+    public static <T extends Comparable<T>> Sorter<T> getSorter(Algorithm algorithm) {
         switch (algorithm) {
             case QUICKSORT:
-                return new Quicksort();
+                return new Quicksort<>();
             case MERGESORT:
-                return new Mergesort();
-            default:
-                throw new Exception("Invalid algorithm");
+                return new Mergesort<>();
         }
+        return null;
     }
 }
